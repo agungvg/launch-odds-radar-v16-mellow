@@ -1,0 +1,79 @@
+:root{--bg:#f4f1ea;--panel:#fffdf8;--ink:#23211c;--mut:#6d675c;--line:#e3ddd0;--teal:#0f766e;--teal2:#115e59;--rust:#b45309;--gold:#f59e0b;--green:#14532d;--greenbg:#dcfce7;--red:#991b1b;--shadow:0 1px 2px rgba(35,33,28,.08),0 4px 14px rgba(35,33,28,.07)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;padding:8px;z-index:99}
+.shell{max-width:1240px;margin:0 auto;padding:14px 18px 40px}
+h1{font-size:26px;margin:0 0 2px}h2{font-size:15px;margin:0 0 6px}h3{font-size:13px;margin:14px 0 6px}
+.sub{color:var(--mut);font-size:12.5px}.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.pos{color:var(--green)}.neg{color:var(--red)}
+/* hero: compact, three fanned 3D cards */
+.hero{background:linear-gradient(100deg,#0f766e 0%,#155e63 45%,#7c2d12 100%);border-radius:14px;color:#fff;padding:14px 18px 12px;box-shadow:var(--shadow)}
+.hero p{margin:2px 0 0;color:#d6f2ee;font-size:12.5px;max-width:900px}
+.cards{display:flex;gap:14px;margin-top:10px;perspective:900px}
+.card3d{flex:1;background:linear-gradient(180deg,#fffdf6,#fdeecd);color:var(--ink);border-radius:10px;padding:10px 12px 8px;transform:rotateX(5deg) rotateY(-4deg);box-shadow:0 10px 22px rgba(0,0,0,.35),inset 0 1px 0 #fff}
+.card3d:nth-child(2){transform:rotateX(5deg) rotateY(0deg) translateY(-3px)}
+.card3d:nth-child(3){transform:rotateX(5deg) rotateY(4deg)}
+.card3d b{font-size:26px;color:var(--rust);display:block;line-height:1.05}
+.card3d span{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--mut)}
+.card3d small{display:block;font-size:11.5px;color:#57534a;margin-top:2px}
+/* KPI strip */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:10px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 11px;box-shadow:var(--shadow)}
+.kpi b{font-size:17px;display:block}.kpi span{font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--mut)}
+.kpi small{display:block;font-size:11.5px;color:#57534a;margin-top:2px}
+/* integrity + accounting */
+.strip{background:var(--green);color:#e7f9ec;border-radius:10px;padding:8px 12px;font-size:12.5px;margin-top:10px}
+.strip b{color:#fff}
+.account{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:12.5px;margin-top:8px}
+/* evidence */
+.evidence{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;box-shadow:var(--shadow)}
+.panel.wide{grid-column:1/-1}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:5px 7px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--mut)}
+td.num,th.num{text-align:right}
+.kept{color:var(--green);font-weight:700}.notkept{color:var(--mut)}
+.curve{width:100%;height:auto;display:block}
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px;margin-top:10px;box-shadow:var(--shadow)}
+.controls input[type=search]{padding:6px 8px;border:1px solid var(--line);border-radius:7px;min-width:170px;font:inherit}
+.controls select{padding:6px;border:1px solid var(--line);border-radius:7px;font:inherit;background:#fff}
+.controls input[type=range]{width:110px;accent-color:var(--teal)}
+.controls label{font-size:12px;color:var(--mut)}
+.fbtn{padding:6px 11px;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;font:inherit}
+.fbtn.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+.btn{padding:6px 11px;border:1px solid var(--line);border-radius:7px;background:#fff;cursor:pointer;font:inherit}
+.btn.primary{background:var(--teal);color:#fff;border-color:var(--teal)}
+.count{margin-left:auto;font-size:12.5px;color:var(--mut)}
+/* board */
+.table-wrap{overflow-x:auto}
+.board{margin-top:10px}
+.board tr{cursor:pointer}.board tr:hover{background:#faf6ec}
+.board tr.sel{background:#eef6f3}
+.verdict{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11.5px;font-weight:700}
+.verdict.Farm{background:var(--greenbg);color:var(--green)}
+.verdict.Marginal{background:#fef3c7;color:#92400e}
+.verdict.Skip{background:#fee2e2;color:var(--red)}
+.range{font-size:11px;color:var(--mut);display:block}
+.name b{display:block}.name span{font-size:11.5px;color:var(--mut)}
+.bar{height:5px;background:#eee7d6;border-radius:3px;overflow:hidden;margin-bottom:2px}
+.bar i{display:block;height:100%;background:var(--teal)}
+/* drawer */
+dialog.detail{border:0;border-radius:14px;padding:0;max-width:860px;width:calc(100vw - 40px);box-shadow:0 18px 60px rgba(0,0,0,.35)}
+dialog.detail::backdrop{background:rgba(20,18,14,.45)}
+.detail-head{display:flex;justify-content:space-between;gap:12px;padding:16px 18px 0}
+.detail-head h2{font-size:20px;margin:2px 0}
+.detail-body{padding:0 18px 18px}
+.close{border:1px solid var(--line);background:#fff;border-radius:7px;padding:6px 10px;cursor:pointer;height:fit-content}
+.equation{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.equation div{background:#faf7ef;border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.equation span{font-size:11px;color:var(--mut);display:block}.equation b{font-size:15px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.cell{border:1px solid var(--line);border-radius:8px;padding:7px 9px;text-align:center;font-size:12.5px}
+.cell.sel{background:var(--greenbg);border-color:var(--green);font-weight:700}
+.cell small{display:block;color:var(--mut);font-size:11px}
+ol.steps{margin:6px 0;padding-left:20px}ol.steps li{margin-bottom:7px}
+ol.steps .cost{display:block;color:var(--mut);font-size:12px}
+.peer td:first-child{font-weight:600}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}.evidence{grid-template-columns:1fr}.equation{grid-template-columns:1fr 1fr}}
